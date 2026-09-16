@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Stylized Sweeping Tail of the capital letter "Q" (Premium Sky Blue Gradient) -->
+    <path
+        android:pathData="M66,66 C73,74 81,81 88,85 C91,86.5 91.5,84.5 89,81.5 C82,73.5 74,65.5 66,66 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="66"
+                android:startY="66"
+                android:endX="88"
+                android:endY="85">
+                <item android:offset="0.0" android:color="#FF00E5FF" />
+                <item android:offset="0.5" android:color="#FF0288D1" />
+                <item android:offset="1.0" android:color="#FF01579B" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Outer Circular Ring of the Capital letter "Q" (Premium Sky Blue Gradient, centered at 54, 50) -->
+    <path
+        android:pathData="M54,18 A32,32 0,1,1, 53.99,18 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="22"
+                android:startY="18"
+                android:endX="86"
+                android:endY="82">
+                <item android:offset="0.0" android:color="#FFE0F7FA" />
+                <item android:offset="0.2" android:color="#FF80DEEA" />
+                <item android:offset="0.6" android:color="#FF00B0FF" />
+                <item android:offset="1.0" android:color="#FF0288D1" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Cutout / Inner Ring of "Q" -->
+    <path
+        android:fillColor="#FF0E1326"
+        android:pathData="M54,23.5 A26.5,26.5 0,1,0, 54.01,23.5 Z" />
+
+    <!-- ================= EMBEDDED CAMERA ICON INSIDE Q ================= -->
+    
+    <!-- Subtle drop shadow for the inner camera -->
+    <path
+        android:fillColor="#25000000"
+        android:pathData="M37,45 L71,45 A3,3 0,0,1, 74,48 L74,64 A3,3 0,0,1, 71,67 L37,67 A3,3 0,0,1, 34,64 L34,48 A3,3 0,0,1, 37,45 Z" />
+
+    <!-- Camera Top Viewfinder Peak -->
+    <path
+        android:pathData="M47,44 L51,37 H57 L61,44 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="47"
+                android:startY="37"
+                android:endX="61"
+                android:endY="44">
+                <item android:offset="0.0" android:color="#FF78909C" />
+                <item android:offset="1.0" android:color="#FF37474F" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Metallic Hot-Shoe/Flash Accent -->
+    <path
+        android:fillColor="#FFCFD8DC"
+        android:pathData="M52,36 H56 V37 H52 Z" />
+
+    <!-- Camera Shutter Button (Top Left) -->
+    <path
+        android:pathData="M39,40 H44 V44 H39 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="39"
+                android:startY="40"
+                android:endX="44"
+                android:endY="44">
+                <item android:offset="0.0" android:color="#FF90A4AE" />
+                <item android:offset="1.0" android:color="#FF455A64" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Inner Camera Main Body (Slate Grey) -->
+    <path
+        android:pathData="M37,43 H71 A4,4 0,0,1, 75,47 V63 A4,4 0,0,1, 71,67 H37 A4,4 0,0,1, 33,63 V47 A4,4 0,0,1, 37,43 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="33"
+                android:startY="43"
+                android:endX="75"
+                android:endY="67">
+                <item android:offset="0.0" android:color="#FF455A64" />
+                <item android:offset="0.5" android:color="#FF546E7A" />
+                <item android:offset="1.0" android:color="#FF263238" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Glowing active cyan record LED -->
+    <path
+        android:fillColor="#FF00E5FF"
+        android:pathData="M69,48 A1.5,1.5 0,1,1, 66,48 A1.5,1.5 0,1,1, 69,48 Z" />
+
+    <!-- ================= 3D TELESCOPING POPPING LENS ================= -->
+
+    <!-- Outer 3D Lens Extrusion Shadow -->
+    <path
+        android:fillColor="#50000000"
+        android:pathData="M54,42 A13.5,13.5 0,1,1, 53.99,42 Z" />
+
+    <!-- Lens Step 1: Base Protruding Metal Ring (Telescoping Barrel 1) -->
+    <path
+        android:pathData="M54,43 A12.5,12.5 0,1,1, 53.99,43 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="41.5"
+                android:startY="43"
+                android:endX="66.5"
+                android:endY="68">
+                <item android:offset="0.0" android:color="#FF78909C" />
+                <item android:offset="0.5" android:color="#FF37474F" />
+                <item android:offset="1.0" android:color="#FF212121" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Lens Step 2: Inner Chrome Rim (Telescoping Barrel 2) -->
+    <path
+        android:pathData="M54,45 A10.5,10.5 0,1,1, 53.99,45 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="43.5"
+                android:startY="45"
+                android:endX="64.5"
+                android:endY="66">
+                <item android:offset="0.0" android:color="#FFECEFF1" />
+                <item android:offset="0.4" android:color="#FF90A4AE" />
+                <item android:offset="1.0" android:color="#FF455A64" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Lens Step 3: Copper/Gold Aperture Highlight Ring -->
+    <path
+        android:pathData="M54,47 A8.5,8.5 0,1,1, 53.99,47 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="45.5"
+                android:startY="47"
+                android:endX="62.5"
+                android:endY="64">
+                <item android:offset="0.0" android:color="#FFFFD54F" />
+                <item android:offset="1.0" android:color="#FFFF8F00" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Lens Step 4: Multi-Coated HD Lens Glass Core (Popping dome sphere) -->
+    <path
+        android:pathData="M54,48.5 A7,7 0,1,1, 53.99,48.5 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="radial"
+                android:centerX="51"
+                android:centerY="52"
+                android:gradientRadius="7">
+                <item android:offset="0.0" android:color="#FF00E5FF" />
+                <item android:offset="0.4" android:color="#FF00B0FF" />
+                <item android:offset="0.8" android:color="#FF0D47A1" />
+                <item android:offset="1.0" android:color="#FF060D22" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- High-Exposure 3D Gloss Highlight Shimmer -->
+    <path
+        android:fillColor="#E6FFFFFF"
+        android:pathData="M49.5,51 C51,49.5 53.5,49.5 55,50 C55.5,50.2 55.2,50.8 54.5,50.7 C53.5,50.2 51.8,50.4 50.5,51.5 C50,52 49.2,51.5 49.5,51 Z" />
+
+    <!-- Tiny secondary reflection sparkle at the bottom-right corner of the dome -->
+    <path
+        android:fillColor="#80FFFFFF"
+        android:pathData="M59,57.5 A0.8,0.8 0,1,1, 57.4,57.5 A0.8,0.8 0,1,1, 59,57.5 Z" />
+
+</vector>

@@ -1,0 +1,6 @@
+{
+  "name": "QuadSnap",
+  "description": "An elegant, light-themed camera/gallery-to-collage Android application with ML Kit subject segmentation, inline camera capture, and background replacement. Created by Abdul Majid.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
