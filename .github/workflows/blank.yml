@@ -25,7 +25,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
-      # Safely handle the local .env configuration on the GitHub runner
+      # Safely handle local .env configuration on the runner
       - name: Create Env Files
         run: |
           touch .env
@@ -33,7 +33,15 @@ jobs:
             echo "# Template" > .env.example
           fi
 
-      # Use global system Gradle directly
+      # Generate a valid debug keystore on the runner to satisfy build requirements
+      - name: Generate Debug Keystore
+        run: |
+          keytool -genkey -v -keystore debug.keystore \
+            -storepass android -alias androiddebugkey -keypass android \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -dname "CN=Android Debug,O=Android,C=US"
+
+      # Use global system Gradle directly to build the APK
       - name: Build Debug APK
         run: gradle :app:assembleDebug --no-daemon
 
