@@ -2,52 +2,45 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "main" ] # Triggers on push to the main branch
   pull_request:
-    branches: [ "main", "master" ]
-  workflow_dispatch:
+    branches: [ "main" ] # Triggers on pull requests to the main branch
+  workflow_dispatch:     # Allows you to trigger the build manually from GitHub
 
 jobs:
   build:
-    name: Build Debug APK
+    name: Compile and Assemble APK
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Check out the repository source code
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
+      # Step 2: Set up JDK 17 (required for modern Android builds)
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          java-version: '21'
           distribution: 'temurin'
+          java-version: '17'
 
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '9.3.1'
+      # Step 3: Set up Gradle and cache dependencies automatically
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
 
-      - name: Prepare Secrets and Keystore
-        run: |
-          # Ensure .env file exists for the secrets-gradle-plugin
-          if [ -f .env.example ]; then
-            cp .env.example .env
-          else
-            touch .env
-          fi
-          # Decode the debug keystore if present as base64
-          if [ -f debug.keystore.base64 ]; then
-            base64 -d debug.keystore.base64 > debug.keystore
-          elif [ ! -f debug.keystore ]; then
-            # Fallback: Generate a standard debug keystore if not found
-            keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
-          fi
+      # Step 4: Grant execution permissions to the Gradle Wrapper script
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # Step 5: Build the Debug APK
       - name: Build Debug APK
-        run: gradle :app:assembleDebug --stacktrace
+        run: ./gradlew assembleDebug --no-daemon
 
-      - name: Upload Debug APK
+      # Step 6: Save and upload the resulting APK as a GitHub Action Artifact
+      - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: QuadSnap-Debug-APK
+          name: app-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
-          retention-days: 30
+          if-no-files-found: error
+          retention-days: 7  # Retain the build artifact for 7 days
