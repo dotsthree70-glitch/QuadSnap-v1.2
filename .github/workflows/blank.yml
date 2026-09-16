@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Compile and Assemble APK
+    name: Compile and Assemble Optimized APK
     runs-on: ubuntu-latest
 
     steps:
@@ -41,14 +41,15 @@ jobs:
             -keyalg RSA -keysize 2048 -validity 10000 \
             -dname "CN=Android Debug,O=Android,C=US"
 
-      # Use global system Gradle directly to build the APK
-      - name: Build Debug APK
-        run: gradle :app:assembleDebug --no-daemon
+      # Build the fully minified, optimized, and signed APK
+      - name: Build Optimized APK
+        run: gradle :app:assembleDebugOptimized --no-daemon
 
+      # Upload the tiny, fast-installing APK as an artifact
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: app-optimized-apk
+          path: app/build/outputs/apk/debugOptimized/app-debugOptimized.apk
           if-no-files-found: error
           retention-days: 7
