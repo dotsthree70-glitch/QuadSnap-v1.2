@@ -25,7 +25,15 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
-      # Use global system Gradle directly — no 'gradlew' file needed!
+      # Safely handle the local .env configuration on the GitHub runner
+      - name: Create Env Files
+        run: |
+          touch .env
+          if [ ! -f .env.example ]; then
+            echo "# Template" > .env.example
+          fi
+
+      # Use global system Gradle directly
       - name: Build Debug APK
         run: gradle :app:assembleDebug --no-daemon
 
